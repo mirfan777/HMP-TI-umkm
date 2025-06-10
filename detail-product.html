@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Coklat CK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-brown: #D4A574;
+            --secondary-brown: #B8956A;
+            --dark-brown: #8B6F47;
+            --light-brown: #F5E6D3;
+            --white: #FFFFFF;
+            --dark: #2C1810;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light-brown);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark-brown);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        .back-btn {
+            background: var(--primary-brown);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--white);
+            color: var(--dark-brown);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 20px 50px;
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .product-gallery {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .main-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            cursor: zoom-in;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .main-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+        }
+
+        .thumbnail {
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail.active {
+            border-color: var(--primary-brown);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            color: var(--primary-brown);
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .product-specs {
+            background: var(--light-brown);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--dark-brown);
+        }
+
+        .spec-value {
+            color: var(--dark);
+        }
+
+        .order-section {
+            background: var(--primary-brown);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .order-title {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-btn {
+            background: var(--white);
+            color: var(--dark-brown);
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .order-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Modal untuk zoom gambar */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            margin-top: 5%;
+            border-radius: 15px;
+        }
+
+        .close {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            color: var(--white);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: var(--primary-brown);
+        }
+
+        /* Footer styles */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-brown);
+        }
+
+        .footer p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            border: 1px solid var(--primary-brown);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-brown);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-brown);
+            padding-top: 1rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-title {
+                font-size: 2rem;
+            }
+
+            .product-price {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 100px 15px 30px;
+            }
+
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+
+            .main-image {
+                height: 300px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .social-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 100px 15px 30px;
+            }
+            
+            .nav-container {
+                padding: 0 15px;
+            }
+
+            .footer h3 {
+                font-size: 1.3rem;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img class="logo" src="assets/logo.png" alt="logo">
+            </a>
+            <a href="index.html" class="back-btn">← Kembali</a>
+        </div>
+    </nav>
+
+    <!-- Product Detail -->
+    <div class="container">
+        <div class="product-detail">
+            <!-- Product Gallery -->
+            <div class="product-gallery">
+                <div class="main-image" id="mainImage">
+                    <img src="assets/milk-chocolate.jpg" alt="Product Image" id="mainImg">
+                </div>
+                <div class="thumbnail-grid">
+                    <div class="thumbnail active" onclick="changeImage('assets/milk-chocolate.jpg')">
+                        <img src="assets/milk-chocolate.jpg" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('assets/chocolate-powder.jpg')">
+                        <img src="assets/chocolate-powder.jpg" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('assets/chocolate-60.jpg')">
+                        <img src="assets/chocolate-60.jpg" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail" onclick="changeImage('assets/chocolate-70.jpg')">
+                        <img src="assets/chocolate-70.jpg" alt="Thumbnail 4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="product-info">
+                <h1 class="product-title" id="productTitle">Minuman Bubuk Coklat</h1>
+                <div class="product-price" id="productPrice">Rp 25.000,-</div>
+                
+                <div class="product-description" id="productDescription">
+                    Minuman Bubuk coklat merupakan olahan bubuk kakao menjadi minuman serbuk siap seduh dan praktis dibawa kemana saja.
+                </div>
+
+                <div class="product-specs">
+                    <div class="spec-item">
+                        <span class="spec-label">Berat Bersih:</span>
+                        <span class="spec-value" id="specWeight">125 gram</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Kandungan Bahan:</span>
+                        <span class="spec-value" id="specIngredients">Bubuk Coklat, Gula, Susu, Vanilla</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Varian / Rasa:</span>
+                        <span class="spec-value" id="specVariant">MILK</span>
+                    </div>
+                </div>
+
+                <div class="order-section">
+                    <h3 class="order-title">📱 Pesan Sekarang!</h3>
+                    <a href="https://wa.me/6281234567890" class="order-btn" id="orderBtn">
+                        Pesan via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for image zoom -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <h3>✨ Coklat CK</h3>
+            <p>Rasa Bali dalam Setiap Gigitan - Bean to Bar Alami & Vegan</p>
+            <div class="social-links">
+                <a href="https://instagram.com/coklatck_">📱 Instagram</a>
+                <a href="https://wa.me/6281234567890">💬 WhatsApp</a>
+                <a href="mailto:ckcoklatjembrana@gmail.com">✉️ Email</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Coklat CK. - by Maulana Irfan</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = {
+            'chocolate-powder': {
+                title: 'Minuman Bubuk Coklat',
+                price: 'Rp 25.000,-',
+                description: 'Minuman Bubuk coklat merupakan olahan bubuk kakao menjadi minuman serbuk siap seduh dan praktis dibawa kemana saja.',
+                weight: '125 gram',
+                ingredients: 'Bubuk Coklat, Gula, Susu, Vanilla',
+                variant: 'MILK',
+                images: ['assets/chocolate-powder.jpg', 'assets/chocolate-powder-1.jpg', 'assets/chocolate-powder-2.jpg', 'assets/chocolate-powder-3.jpg']              
+            },
+            'milk-chocolate': {
+                title: 'Milk Chocolate',
+                price: 'Rp 13.000,-',
+                description: 'Milk coklat merupakan olahan biji kakao dengan bahan dasar pasta kakao dengan tambahan bahan lain dan memiliki citar rasa manis. cocok untuk ngemil dan teman nongkrong',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak cokelat, Gula, Vanilla',
+                variant: 'MILK',
+                images: ['assets/milk-chocolate.jpg']
+            },
+            'coklat-mente': {
+                title: 'Coklat Mente',
+                price: 'Rp 16.000,-',
+                description: 'Coklat Mente merupakan produk coklat bervarian susu yang dipadukan dengan rasa Kacang Mente dari Kwt Kusuma Sari, cita rasa coklat lokal Jembrana dipadukan dengan rasa susu dan Kacang Mente yang gurih, Renyah dan manis membuat produk Milk Chocolate dapat memenuhi pecinta coklat manis di kalangan anak muda',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu,Kacang Mente, Vanila',
+                variant: 'Cashews',
+                images: ['assets/chocolate-mente.jpg' , 'assets/chocolate-mente-1.jpg', 'assets/chocolate-mente-2.jpg' , 'assets/chocolate-mente.jpg']
+            },
+            'dark-chocolate-90': {
+                title: 'Dark Chocolate 90%',
+                price: 'Rp 25.000,-',
+                description: 'Dark Chocolate 90% merupakan produk dark chocolate bar yang mengandung pasta kakao 50% dari KWT Kusuma Sari, dengan rasa coklat lokal Jembrana 90%. Cokelat hitam cocok untuk mereka yang sedang diet karena rendah gula dan ideal untuk konsumen yang mengurangi konsumsi gula.',
+                weight: '40 gram',
+                ingredients: 'Pasta Coklat, Mentega Kakao, Gula, Susu, Vanila',
+                variant: 'Dark 90%',
+                images: ['assets/chocolate-90.jpg', 'assets/chocolate-90-1.jpg' , 'assets/chocolate-90-2.jpg' , 'assets/chocolate-90.jpg']
+            },
+            'dark-chocolate-60': {
+                title: 'Dark Chocolate 60% Vegan',
+                price: 'Rp 23.000,-',
+                description: 'Dark Chocolate 60% Vegan merupakan produk coklat bar varian dark dengan kandungan 30% pasta kakao dari Kwt Kusuma Sari, dengan cita rasa coklat lokal Jembrana dark chocolate 60% Vegan merupakan cokelat bar dengan target pasar konsumen yang tidak mengkonsumsi makanan dari bahan hewani.',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak cokelat, Gula Semut,Susu Bubuk Kedelai . Cocoa mess, Cocoa Butter, Coconut Sugar, Soy Milk Powder',
+                variant: 'Dark 60%',
+                images: ['assets/chocolate-60.jpg', 'assets/chocolate-60-1.jpg', 'assets/chocolate-60-2.jpg' , 'assets/chocolate-60.jpg']
+            },
+            'dark-chocolate-70': {
+                title: 'Dark Chocolate 70%',
+                price: 'Rp 23.000,-',
+                description: 'Dark Chocolate 70% merupakan produk coklat bar varian dark dengan kandungan 40% pasta kakao dari Kwt Kusuma Sari, dengan cita rasa coklat lokal Jembrana dark chocolate 70% cocok untuk teman diet karena rendah gula serta cocok untuk konsumen yang mengurangi konsumsi gula',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak cokelat, Gula, Vanilla, Cocoa Mess, Cocoa Butter, Milk Powder, Sugar, Vanila',
+                variant: 'Dark 70%',
+                images: ['assets/chocolate-70.jpg', 'assets/chocolate-70-1.jpg', 'assets/chocolate-70-2.jpg' , 'assets/chocolate-70.jpg']
+            },
+            'strawberry-chocolate': {
+                title: 'Strawberry with Chocolate',
+                price: 'Rp 19.000,-',
+                description: 'Strawbery With Chocolate merupakan produk coklat bar varian susu yang dipadukan dengan rasa selai strawbery dari Kwt Kusuma Sari, cita rasa coklat lokal Jembrana dipadukan dengan rasa susu dan selai strawbery yang gurih dan manis membuat produk Milk Chocolate dapat memenuhi pecinta coklat manis di kalangan anak muda.',
+                weight: '40 gram',
+                ingredients: 'Chocolate Paste, Cocoa Butter, Sugar, Milk, Strawberry Jam, Vanilla',
+                variant: 'Strawberry',
+                images: ['assets/chocolate-strawberry.jpg', 'assets/chocolate-strawberry-1.jpg', 'assets/chocolate-strawberry-2.jpg' , 'assets/chocolate-strawberry.jpg']
+            }
+        };
+
+        // Get product from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('produk') || 'chocolate-powder';
+
+        // Load product data
+        function loadProduct() {
+            const product = products[productId];
+            if (product) {
+                document.getElementById('productTitle').textContent = product.title;
+                document.getElementById('productPrice').textContent = product.price;
+                document.getElementById('productDescription').textContent = product.description;
+                document.getElementById('specWeight').textContent = product.weight;
+                document.getElementById('specIngredients').textContent = product.ingredients;
+                document.getElementById('specVariant').textContent = product.variant;
+                
+                // Update main image
+                document.getElementById('mainImg').src = product.images[0];
+                
+                // Update thumbnails
+                const thumbnails = document.querySelectorAll('.thumbnail');
+                thumbnails.forEach((thumb, index) => {
+                    if (product.images[index]) {
+                        thumb.onclick = () => changeImage(product.images[index]);
+                        thumb.querySelector('img').src = product.images[index];
+                    }
+                });
+                
+                // Update WhatsApp link
+                const orderBtn = document.getElementById('orderBtn');
+                const message = `Halo, saya tertarik dengan produk ${product.title} dengan harga ${product.price}. Bisa info lebih lanjut?`;
+                orderBtn.href = `https://wa.me/6281234567890?text=${encodeURIComponent(message)}`;
+            }
+        }
+
+        // Change main image
+        function changeImage(imageSrc) {
+            document.getElementById('mainImg').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+                if (thumb.querySelector('img').src.includes(imageSrc.split('/').pop())) {
+                    thumb.classList.add('active');
+                }
+            });
+        }
+
+        // Image zoom functionality
+        document.getElementById('mainImage').addEventListener('click', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImg');
+            modal.style.display = 'block';
+            modalImg.src = document.getElementById('mainImg').src;
+        });
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the image
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Load product on page load
+        loadProduct();
+    </script>
+</body>
+</html>
