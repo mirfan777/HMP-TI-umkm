@@ -287,7 +287,6 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    padding-top: 80px;
 }
 
 .hero::before {
@@ -343,6 +342,7 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 80px;
 }
 
 .btn {
