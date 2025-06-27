@@ -479,68 +479,104 @@
     <script>
         // Product data
         const products = {
-            'chocolate-powder': {
-                title: 'Minuman Bubuk Coklat',
-                price: 'Rp 25.000,-',
-                description: 'Minuman Bubuk coklat merupakan olahan bubuk kakao menjadi minuman serbuk siap seduh dan praktis dibawa kemana saja.',
-                weight: '125 gram',
-                ingredients: 'Bubuk Coklat, Gula, Susu, Vanilla',
-                variant: 'MILK',
-                images: ['./assets/chocolate-powder.JPG', './assets/chocolate-powder-1.JPG', './assets/chocolate-powder-2.JPG', './assets/chocolate-powder-3.JPG']              
-            },
             'milk-chocolate': {
                 title: 'Milk Chocolate',
-                price: 'Rp 13.000,-',
+                price: 'Rp 20.000,-',
                 description: 'Milk coklat merupakan olahan biji kakao dengan bahan dasar pasta kakao dengan tambahan bahan lain dan memiliki citar rasa manis. cocok untuk ngemil dan teman nongkrong',
                 weight: '40 gram',
                 ingredients: 'Pasta Cokelat, Lemak cokelat, Gula, Vanilla',
                 variant: 'MILK',
-                images: ['./assets/milk-chocolate.JPG']
+                images: ['./assets/chocolate-milk.png', './assets/chocolate-milk-1.png', './assets/chocolate-milk-2.png', './assets/chocolate-milk-3.png']
             },
             'coklat-mente': {
                 title: 'Coklat Mente',
-                price: 'Rp 16.000,-',
+                price: 'Rp 20.000,-',
                 description: 'Coklat Mente merupakan produk coklat bervarian susu yang dipadukan dengan rasa Kacang Mente dari Kwt Kusuma Sari, cita rasa coklat lokal Jembrana dipadukan dengan rasa susu dan Kacang Mente yang gurih, Renyah dan manis membuat produk Milk Chocolate dapat memenuhi pecinta coklat manis di kalangan anak muda',
                 weight: '40 gram',
                 ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu,Kacang Mente, Vanila',
                 variant: 'Cashews',
-                images: ['./assets/chocolate-mente.JPG' , './assets/chocolate-mente-1.JPG', './assets/chocolate-mente-2.JPG' , './assets/chocolate-mente.JPG']
+                images: ['./assets/chocolate-mente.png', './assets/chocolate-mente-1.png', './assets/chocolate-mente-2.png', './assets/chocolate-mente-3.png']
             },
             'dark-chocolate-90': {
                 title: 'Dark Chocolate 90%',
-                price: 'Rp 25.000,-',
+                price: 'Rp 20.000,-',
                 description: 'Dark Chocolate 90% merupakan produk dark chocolate bar yang mengandung pasta kakao 50% dari KWT Kusuma Sari, dengan rasa coklat lokal Jembrana 90%. Cokelat hitam cocok untuk mereka yang sedang diet karena rendah gula dan ideal untuk konsumen yang mengurangi konsumsi gula.',
                 weight: '40 gram',
                 ingredients: 'Pasta Coklat, Mentega Kakao, Gula, Susu, Vanila',
                 variant: 'Dark 90%',
-                images: ['./assets/chocolate-90.JPG', './assets/chocolate-90-1.JPG' , './assets/chocolate-90-2.JPG' , './assets/chocolate-90.JPG']
+                images: ['./assets/chocolate-90.png', './assets/chocolate-90-1.png', './assets/chocolate-90-2.png', './assets/chocolate-90-3.png']
             },
             'dark-chocolate-60': {
                 title: 'Dark Chocolate 60% Vegan',
-                price: 'Rp 23.000,-',
+                price: 'Rp 20.000,-',
                 description: 'Dark Chocolate 60% Vegan merupakan produk coklat bar varian dark dengan kandungan 30% pasta kakao dari Kwt Kusuma Sari, dengan cita rasa coklat lokal Jembrana dark chocolate 60% Vegan merupakan cokelat bar dengan target pasar konsumen yang tidak mengkonsumsi makanan dari bahan hewani.',
                 weight: '40 gram',
                 ingredients: 'Pasta Cokelat, Lemak cokelat, Gula Semut,Susu Bubuk Kedelai . Cocoa mess, Cocoa Butter, Coconut Sugar, Soy Milk Powder',
                 variant: 'Dark 60%',
-                images: ['./assets/chocolate-60.JPG', './assets/chocolate-60-1.JPG', './assets/chocolate-60-2.JPG' , './assets/chocolate-60.JPG']
+                images: ['./assets/chocolate-60.png', './assets/chocolate-60-1.png', './assets/chocolate-60-2.png', './assets/chocolate-60-3.png']
             },
             'dark-chocolate-70': {
                 title: 'Dark Chocolate 70%',
-                price: 'Rp 23.000,-',
+                price: 'Rp 20.000,-',
                 description: 'Dark Chocolate 70% merupakan produk coklat bar varian dark dengan kandungan 40% pasta kakao dari Kwt Kusuma Sari, dengan cita rasa coklat lokal Jembrana dark chocolate 70% cocok untuk teman diet karena rendah gula serta cocok untuk konsumen yang mengurangi konsumsi gula',
                 weight: '40 gram',
                 ingredients: 'Pasta Cokelat, Lemak cokelat, Gula, Vanilla, Cocoa Mess, Cocoa Butter, Milk Powder, Sugar, Vanila',
                 variant: 'Dark 70%',
-                images: ['./assets/chocolate-70.JPG', './assets/chocolate-70-1.JPG', './assets/chocolate-70-2.JPG' , './assets/chocolate-70.JPG']
+                images: ['./assets/chocolate-70.png', './assets/chocolate-70-1.png', './assets/chocolate-70-2.png', './assets/chocolate-70-3.png']
             },
             'strawberry-chocolate': {
                 title: 'Strawberry with Chocolate',
-                price: 'Rp 19.000,-',
+                price: 'Rp 20.000,-',
                 description: 'Strawbery With Chocolate merupakan produk coklat bar varian susu yang dipadukan dengan rasa selai strawbery dari Kwt Kusuma Sari, cita rasa coklat lokal Jembrana dipadukan dengan rasa susu dan selai strawbery yang gurih dan manis membuat produk Milk Chocolate dapat memenuhi pecinta coklat manis di kalangan anak muda.',
                 weight: '40 gram',
                 ingredients: 'Chocolate Paste, Cocoa Butter, Sugar, Milk, Strawberry Jam, Vanilla',
                 variant: 'Strawberry',
-                images: ['./assets/chocolate-strawberry.JPG', './assets/chocolate-strawberry-1.JPG', './assets/chocolate-strawberry-2.JPG' , './assets/chocolate-strawberry.JPG']
+                images: ['./assets/chocolate-strawberry.png', './assets/chocolate-strawberry-1.png', './assets/chocolate-strawberry-2.png', './assets/chocolate-strawberry-3.png']
+            },
+            'almond-chocolate': {
+                title: 'Almond Chocolate',
+                price: 'Rp 20.000,-',
+                description: 'Almond Chocolate merupakan perpaduan sempurna antara coklat premium dengan kacang almond pilihan. Memberikan sensasi rasa manis coklat yang berpadu dengan tekstur renyah dan gurih almond yang khas.',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu, Kacang Almond, Vanilla',
+                variant: 'Almond',
+                images: ['./assets/chocolate-almond.png', './assets/chocolate-almond-1.png', './assets/chocolate-almond-2.png', './assets/chocolate-almond-3.png']
+            },
+            'cashew-chocolate': {
+                title: 'Cashew Chocolate',
+                price: 'Rp 20.000,-',
+                description: 'Cashew Chocolate menghadirkan kombinasi lezat antara coklat berkualitas dengan kacang mete premium. Tekstur lembut kacang mete berpadu harmonis dengan kelezatan coklat yang creamy.',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu, Kacang Mete, Vanilla',
+                variant: 'Cashew',
+                images: ['./assets/chocolate-cashew.png', './assets/chocolate-cashew-1.png', './assets/chocolate-cashew-2.png', './assets/chocolate-cashew-3.png']
+            },
+            'durian-chocolate': {
+                title: 'Durian Chocolate',
+                price: 'Rp 20.000,-',
+                description: 'Durian Chocolate adalah inovasi unik yang memadukan kelezatan coklat dengan aroma dan rasa durian yang khas. Cocok untuk pecinta durian yang ingin merasakan sensasi baru dalam coklat.',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu, Pasta Durian, Vanilla',
+                variant: 'Durian',
+                images: ['./assets/chocolate-durian.png', './assets/chocolate-durian-1.png', './assets/chocolate-durian-2.png', './assets/chocolate-durian-3.png']
+            },
+            'hazelnut-chocolate': {
+                title: 'Hazelnut Chocolate',
+                price: 'Rp 20.000,-',
+                description: 'Hazelnut Chocolate menghadirkan cita rasa premium dengan perpaduan coklat dan kacang hazelnut yang aromatic. Memberikan sensasi mewah dengan tekstur halus dan rasa yang kaya.',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu, Kacang Hazelnut, Vanilla',
+                variant: 'Hazelnut',
+                images: ['./assets/chocolate-hazelnut.png', './assets/chocolate-hazelnut-1.png', './assets/chocolate-hazelnut-2.png', './assets/chocolate-hazelnut-3.png']
+            },
+            'matcha-chocolate': {
+                title: 'Matcha Chocolate',
+                price: 'Rp 20.000,-',
+                description: 'Matcha Chocolate adalah perpaduan eksotis antara coklat premium dengan bubuk matcha Jepang pilihan. Menghadirkan rasa manis coklat yang seimbang dengan aroma dan rasa matcha yang segar.',
+                weight: '40 gram',
+                ingredients: 'Pasta Cokelat, Lemak Cokelat, Gula, Susu, Bubuk Matcha, Vanilla',
+                variant: 'Matcha',
+                images: ['./assets/chocolate-matcha.png', './assets/chocolate-matcha-1.png', './assets/chocolate-matcha-2.png', './assets/chocolate-matcha-3.png']
             }
         };
 
