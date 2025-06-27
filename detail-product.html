@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail Produk - Coklat CK</title>
+    <title>Detail Produk - Prascho</title>
     <link rel="icon" href="./assets/logo.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,7 +62,7 @@
         }
 
         .logo {
-            width: 40px;
+            width: 25px;
             height: 40px;
         }
 
@@ -391,6 +391,7 @@
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
                 <img class="logo" src="./assets/logo.png" alt="logo">
+                Prascho
             </a>
             <a href="index.html" class="back-btn">← Kembali</a>
         </div>
@@ -402,45 +403,45 @@
             <!-- Product Gallery -->
             <div class="product-gallery">
                 <div class="main-image" id="mainImage">
-                    <img src="./assets/milk-chocolate.JPG" alt="Product Image" id="mainImg">
+                    <img src="./assets/prascho.png" alt="Product Image" id="mainImg">
                 </div>
                 <div class="thumbnail-grid">
-                    <div class="thumbnail active" onclick="changeImage('./assets/milk-chocolate.JPG')">
-                        <img src="./assets/milk-chocolate.JPG" alt="Thumbnail 1">
+                    <div class="thumbnail active" onclick="changeImage('./assets/prascho.png')">
+                        <img src="./assets/prascho.png" alt="Thumbnail 1">
                     </div>
-                    <div class="thumbnail" onclick="changeImage('./assets/chocolate-powder.JPG')">
-                        <img src="./assets/chocolate-powder.JPG" alt="Thumbnail 2">
+                    <div class="thumbnail" onclick="changeImage('./assets/prascho-1.png')">
+                        <img src="./assets/prascho-1.png" alt="Thumbnail 2">
                     </div>
-                    <div class="thumbnail" onclick="changeImage('./assets/chocolate-60.JPG')">
-                        <img src="./assets/chocolate-60.JPG" alt="Thumbnail 3">
+                    <div class="thumbnail" onclick="changeImage('./assets/prascho-2.png')">
+                        <img src="./assets/prascho-2.png" alt="Thumbnail 3">
                     </div>
-                    <div class="thumbnail" onclick="changeImage('./assets/chocolate-70.JPG')">
-                        <img src="./assets/chocolate-70.JPG" alt="Thumbnail 4">
+                    <div class="thumbnail" onclick="changeImage('./assets/prascho-3.png')">
+                        <img src="./assets/prascho-3.png" alt="Thumbnail 4">
                     </div>
                 </div>
             </div>
 
             <!-- Product Info -->
             <div class="product-info">
-                <h1 class="product-title" id="productTitle">Minuman Bubuk Coklat</h1>
-                <div class="product-price" id="productPrice">Rp 25.000,-</div>
+                <h1 class="product-title" id="productTitle">Prascho</h1>
+                <div class="product-price" id="productPrice">Rp 15.000,-</div>
                 
                 <div class="product-description" id="productDescription">
-                    Minuman Bubuk coklat merupakan olahan bubuk kakao menjadi minuman serbuk siap seduh dan praktis dibawa kemana saja.
+                    Prascho adalah produk coklat prasmanan yang menggabungkan kelezatan tradisional dengan sentuhan modern. Dibuat dengan bahan-bahan berkualitas tinggi dan proses pembuatan yang higienis.
                 </div>
 
                 <div class="product-specs">
                     <div class="spec-item">
                         <span class="spec-label">Berat Bersih:</span>
-                        <span class="spec-value" id="specWeight">125 gram</span>
+                        <span class="spec-value" id="specWeight">50 gram</span>
                     </div>
                     <div class="spec-item">
                         <span class="spec-label">Kandungan Bahan:</span>
-                        <span class="spec-value" id="specIngredients">Bubuk Coklat, Gula, Susu, Vanilla</span>
+                        <span class="spec-value" id="specIngredients">Pasta Cokelat, Gula, Susu, Kacang, Vanilla, Pengawet Alami</span>
                     </div>
                     <div class="spec-item">
                         <span class="spec-label">Varian / Rasa:</span>
-                        <span class="spec-value" id="specVariant">MILK</span>
+                        <span class="spec-value" id="specVariant">Traditional</span>
                     </div>
                 </div>
 
@@ -463,15 +464,15 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <h3>✨ Coklat CK</h3>
-            <p>Rasa Bali dalam Setiap Gigitan - Bean to Bar Alami & Vegan</p>
+            <h3>✨ Prascho</h3>
+            <p>Kelezatan Tradisional dalam Setiap Gigitan - Coklat Prasmanan Berkualitas</p>
             <div class="social-links">
-                <a href="https://instagram.com/coklatck_">📱 Instagram</a>
+                <a href="https://instagram.com/prascho_official">📱 Instagram</a>
                 <a href="https://wa.me/6281234567890">💬 WhatsApp</a>
-                <a href="mailto:ckcoklatjembrana@gmail.com">✉️ Email</a>
+                <a href="mailto:info@prascho.com">✉️ Email</a>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Coklat CK. - by Maulana Irfan</p>
+                <p>&copy; 2025 Prascho. - by Maulana Irfan</p>
             </div>
         </div>
     </footer>
@@ -479,6 +480,15 @@
     <script>
         // Product data
         const products = {
+           'chocolate-powder': {
+                title: 'Minuman Bubuk Coklat',
+                price: 'Rp 25.000,-',
+                description: 'Minuman Bubuk coklat merupakan olahan bubuk kakao menjadi minuman serbuk siap seduh dan praktis dibawa kemana saja.',
+                weight: '125 gram',
+                ingredients: 'Bubuk Coklat, Gula, Susu, Vanilla',
+                variant: 'MILK',
+                images: ['./assets/chocolate-powder.JPG', './assets/chocolate-powder-1.JPG', './assets/chocolate-powder-2.JPG', './assets/chocolate-powder-3.JPG']
+            },
             'milk-chocolate': {
                 title: 'Milk Chocolate',
                 price: 'Rp 20.000,-',
@@ -582,7 +592,7 @@
 
         // Get product from URL parameter
         const urlParams = new URLSearchParams(window.location.search);
-        const productId = urlParams.get('produk') || 'chocolate-powder';
+        const productId = urlParams.get('produk') || 'prascho';
 
         // Load product data
         function loadProduct() {
